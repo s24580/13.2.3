@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -30,5 +31,9 @@ function CalculatorAction({ action }) {
 
   return <div>Result: {result}</div>;
 }
+
+CalculatorAction.propTypes = {
+  action: PropTypes.oneOf(['add', 'sub', 'mul', 'div']).isRequired,
+};
 
 export default CalculatorAction;
